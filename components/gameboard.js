@@ -23,6 +23,8 @@ export default function Gameboard() {
     useState(new Array(NBR_OF_TURNS).fill(false));
     const [selectedDices, setSelectedDices] =
     useState(new Array(NBR_OF_DICES).fill(false));
+    const [selectedPoints, setSelectedPoints] = 
+    useState(new Array(NBR_OF_TURNS).fill(false));
     
     const row = [];
     for (let i = 0; i < NBR_OF_DICES; i++) {
@@ -61,6 +63,25 @@ export default function Gameboard() {
         let dices = [...selectedDices];
         dices[i] = selectedDices[i] ? false : true;
         setSelectedDices(dices);
+    }
+
+    function selectPoints() {
+        let point = [...selectedPoints];
+        point[i] = selectedPoints[i] ? false : true;
+        setSelectedDices(point);
+        let pointsFromDice = 0;
+
+        for (let j = 0; j < board.length; j++) {
+            if (board[j] == ("dice-" + (i + 1))){
+                pointsFromDice += (i+1);
+            }
+        }
+        //if (point[i] == true) {
+        //    point[i] += pointsFromDice;
+           // addPointsToBonus();
+         //   setRoundEnded(true)
+
+       // })
     }
     
     function getDiceColor(i){
