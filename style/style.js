@@ -67,5 +67,8 @@ export default StyleSheet.create({
   },
   pointsText: {
     fontSize: 15
+  },points: {
+    width: 30,
+    textAlign: 'center',
   }
 });
